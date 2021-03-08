@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&display=swap');
+
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, hsl(64, 15%, 22%), hsl(165, 3%, 29%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.clock{
+    background: linear-gradient(to right, hsl(0, 0%, 67%), hsl(175, 100%, 50%));
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    border-radius: 50%;
+    border: 2px solid black;
+    align-items: center;
+    position: relative;
+}
+
+.clock .number{
+    position:absolute;
+    width:100%;
+    height:100%;
+    text-align:center;
+    font-size: 2rem;
+    --rotation:0;
+    transform: rotate(var(--rotation));
+}
+
+.clock .number1 {--rotation:30deg;}
+.clock .number2 {--rotation:60deg;}
+.clock .number3 {--rotation:90deg;}
+.clock .number4 {--rotation:120deg;}
+.clock .number5 {--rotation:150deg;}
+.clock .number6 {--rotation:180deg;}
+.clock .number7 {--rotation:210deg;}
+.clock .number8 {--rotation:240deg;}
+.clock .number9 {--rotation:270deg;}
+.clock .number10 {--rotation:300deg;}
+.clock .number11{--rotation:330deg;}
+
+.reverse {
+    --reverse: 0;
+    transform: rotate(var(--reverse));
+  }
+
+.number1  div{ --reverse: -30deg}
+.number2  div{ --reverse: -60deg}
+.number3  div{ --reverse: -90deg}
+.number4  div{ --reverse: -120deg}
+.number5  div{ --reverse: -150deg}
+.number6  div{ --reverse: -180deg}
+.number7  div{ --reverse: -210deg}
+.number8  div{ --reverse: -240deg}
+.number9  div{ --reverse: -270deg}
+.number10 div{--reverse: -300deg}
+.number11 div{--reverse: -330deg}
+
+.clock .hand{
+    --rotation:0;
+    border:1.5px white;
+    border-top-left-radius:10px;
+    border-top-right-radius: 10px;
+    position:absolute;
+    bottom:50%;
+    left:50%;
+    transform:translateX(-50%) rotate(calc(var(--rotation)*1deg));
+    transform-origin:bottom;
+    z-index:10;
+
+}
+.clock::after{
+    content:'';
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width:15px;
+    height:15px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border-radius: 50%;
+}
+
+.clock .secondshand{
+    background-color: red;
+    width: 2px;
+    height: 45%;
+}
+
+.clock .minuteshand{
+    background-color: black;
+    width: 7px;
+    height: 40%;
+}
+
+.clock .hourshand{
+    background-color: black;
+    width: 9px;
+    height: 35%;
+}
+
+
+
