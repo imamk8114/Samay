@@ -1,17 +1,18 @@
-setInterval(setClock, 1000)
+setInterval(setClock, 1000);
+setInterval(setDigitalTime, 1000);
 
 const hourHand = document.querySelector('[data-hour-hand]')
 const minuteHand = document.querySelector('[data-minute-hand]')
 const secondHand = document.querySelector('[data-second-hand]')
 
 function setClock() {
-  const currentDate = new Date()
-  const secondsRatio = currentDate.getSeconds() / 60
-  const minutesRatio =  currentDate.getMinutes()/ 60
-  const hoursRatio = currentDate.getHours() / 12
-  setRotation(secondHand, secondsRatio)
-  setRotation(minuteHand, minutesRatio)
-  setRotation(hourHand, hoursRatio)
+  const currentDate = new Date();
+  const secondsRatio = currentDate.getSeconds() / 60;
+  const minutesRatio =  currentDate.getMinutes()/ 60;
+  const hoursRatio = currentDate.getHours() / 12;
+  setRotation(secondHand, secondsRatio);
+  setRotation(minuteHand, minutesRatio);
+  setRotation(hourHand, hoursRatio);
 }
 
 function setRotation(element, rotationRatio) {
@@ -21,4 +22,13 @@ function setRotation(element, rotationRatio) {
 
 }
 
-setClock()
+function setDigitalTime(){
+  const currentTime = new Date();
+  const currentOffset = currentTime.getTimezoneOffset();
+  const ISTOffset = 330;   // IST offset UTC +5:30 
+  const ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
+  document.getElementById('digitalTime').value =ISTTime.toLocaleString();
+}
+
+setClock();
+setDigitalTime();
